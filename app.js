@@ -10,23 +10,15 @@ app.set("view engine", "ejs");
 
 
 const uri = process.env.MONGODB_URI;
-mongoose.connect(
-  uri,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  (error) => {
-    if (error) console.log("Error connecting to database");
-    else console.log("Successfully connected to the database");
-  }
-);
 
-// mongoose.connect(
-//   "mongodb://localhost/yelpcamp",
-//   { useNewUrlParser: true, useUnifiedTopology: true },
-//   (error) => {
-//     if (error) console.log("Error connecting to database");
-//     else console.log("Successfully connected to the database");
-//   }
-// );
+ mongoose.connect(
+   "mongodb://localhost:27017/yelpcamp",
+   { useNewUrlParser: true, useUnifiedTopology: true },
+   (error) => {
+     if (error) console.log("Error connecting to database");
+     else console.log("Successfully connected to the database");
+   }
+ );
 
 var campgroundSchema = new mongoose.Schema({
   name: String,
@@ -75,7 +67,7 @@ app.get("/campgrounds/:id", function (req, res) {
     // res.render("show");
   });
  
-const port = proces.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log("Yelp app is running "+port);
 });
