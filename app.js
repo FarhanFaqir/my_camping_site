@@ -9,10 +9,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 
-const uri = process.env.MONGODB_URI;
+// const uri = process.env.MONGODB_URI;
 
  mongoose.connect(
-   "mongodb://localhost:27017/yelpcamp",
+   "mongodb+srv://farhanfaqir:<mongodbatlas@02043>@yelp-camp.pf3ue.mongodb.net/yelp-camp?retryWrites=true&w=majority",
    { useNewUrlParser: true, useUnifiedTopology: true },
    (error) => {
      if (error) console.log("Error connecting to database");
